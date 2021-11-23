@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,7 +28,10 @@ public class Vehiculo {
 	@JoinColumn(name = "Cmodelo", nullable = false)
 	private Modelo modelo;
 	
-	@NotEmpty(message = "Ingrese el numero de llantas")
+	@ManyToOne
+	@JoinColumn(name = "idPropietario", nullable = false)
+	private Propietario propietario;
+	
 	@Column(name = "Qllanta", length = 20, nullable = false)
 	private int Qllanta;
 	
@@ -42,13 +44,18 @@ public class Vehiculo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Vehiculo(int idVehiculo, Modelo modelo, int qllanta, Date dfabricacion) {
+	
+
+	public Vehiculo(int idVehiculo, Modelo modelo, Propietario propietario, int qllanta, Date dfabricacion) {
 		super();
 		this.idVehiculo = idVehiculo;
 		this.modelo = modelo;
+		this.propietario = propietario;
 		Qllanta = qllanta;
 		Dfabricacion = dfabricacion;
 	}
+
+
 
 	public int getIdVehiculo() {
 		return idVehiculo;
@@ -81,6 +88,15 @@ public class Vehiculo {
 	public void setDfabricacion(Date dfabricacion) {
 		Dfabricacion = dfabricacion;
 	}
+	
+	public Propietario getPropietario() {
+		return propietario;
+	}
+
+	public void setPropietario(Propietario propietario) {
+		this.propietario = propietario;
+	}
+
 	
 	
 }
