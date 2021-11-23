@@ -73,6 +73,12 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/users/reportes}">Reportes</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/marcas/list}">Marcas</a>
 					</div>
 				</div>
@@ -82,6 +88,43 @@
 						<a class="collapse-item" th:href="@{/modelos/list}">Modelos</a>
 					</div>
 				</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/departamentos/list}">Departamentos</a>
+					</div>
+				</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/provincias/list}">Provincias</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/distritos/list}">Distritos</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/categories/list}">Categorías</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/propietario/list}">Propietarios</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/taller/list}">Talleres mecanicos</a>
+					</div>
+				</div>
+				
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Usuarios</span>
@@ -92,7 +135,14 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/vehiculos/list}">Vehiculos</a>
 					</div>
-				</div></li>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/telefonopropietario/list}">Telefonos cliente</a>
+					</div>
+				</div>
+				</li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="true"
@@ -121,10 +171,18 @@
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="true"
-				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Reportes</span>
+				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Busqueda</span>
 			</a>
+			
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/marcas/listFind}">Buscar
+							Marcas</a>
+					</div>
+				</div>
+				
 				</li>
-
 
 
 			<!-- Divider -->
@@ -171,11 +229,11 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span>Bienvenido usuario: </span> <span
+							aria-expanded="false"> <span style="color:rgb(30, 144, 255);">Bienvenido usuario: </span> <span style="color:rgb(30, 144, 255);"
 							th:text="${#authentication.getPrincipal().getUsername()}"></span> 
 							&nbsp; &nbsp; &nbsp; 
-							<span> Con rol(es): </span>
-							<span th:text="${#authentication.getPrincipal().authorities}"></span>
+							<span style="color:rgb(30, 144, 255);"> Con rol(es): </span>
+							<span style="color:rgb(30, 144, 255);" th:text="${#authentication.getPrincipal().authorities}"></span>
 							&nbsp; &nbsp; &nbsp;
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
@@ -208,7 +266,7 @@
 						<h1 class="h3 mb-4 text-gray-800">Usuarios</h1>
 
 
-						<a th:href="@{/users/new/}" class="btn btn-danger btn-xs">Nuevo</a>
+						<a th:href="@{/users/new/}" class="btn btn-primary btn-xs">Nuevo</a>
 
 						<hr class="sidebar-divider">
 

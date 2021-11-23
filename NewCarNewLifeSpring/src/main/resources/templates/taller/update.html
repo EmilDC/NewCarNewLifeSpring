@@ -68,7 +68,6 @@
 						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div>
-	
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -202,36 +201,124 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Estado</h1>
+					<h1 class="h3 mb-4 text-gray-800">Taller mecanico</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${estadotaller}" th:remove="tag">
+					<div th:object="${taller}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/estadotalleres/save}" th:object="${estadotaller}"
+					<form th:action="@{/taller/save}" th:object="${taller}"
 						method="post">
 						
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Estado</label>
+							<div class="form-group row">
+							<label for="idTallerMecanico" class="col-sm-2 col-form-label">Id</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{nameEstadoTaller}"
+								<input type="text" th:field="*{idTallerMecanico}" class="form-control"
+									readonly th:errorclass="'form-control alert-success'" /> <small
+									class="form-text text-success"
+									th:if="${#fields.hasErrors('idTallerMecanico')}" th:errors="*{idTallerMecanico}"></small>
+							</div>
+						</div>
+						
+						
+						<div class="form-group row">
+							<label for="name" class="col-sm-2 col-form-label">Nombre</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{nameTaller}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameEstadoTaller')}" th:errors="*{nameEstadoTaller}"></small>
+									th:if="${#fields.hasErrors('nameTaller')}" th:errors="*{nameTaller}"></small>
 							</div>
 						</div>
-
+						
+						<div class="form-group row">
+							<label for="direccionTaller" class="col-sm-2 col-form-label">Direccion</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{direccionTaller}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('direccionTaller')}" th:errors="*{direccionTaller}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="capacidadTaller" class="col-sm-2 col-form-label">Capacidad
+							</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{capacidadTaller}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('capacidadTaller')}" th:errors="*{capacidadTaller}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="latTaller" class="col-sm-2 col-form-label">Latitud</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{latTaller}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('latTaller')}" th:errors="*{latTaller}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="longTaller" class="col-sm-2 col-form-label">Longitud</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{longTaller}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('longTaller')}" th:errors="*{longTaller}"></small>
+							</div>
+						</div>
+					
+					<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Distrito</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{distrito}">
+									<option th:each="distrito : ${listaDistrito}"
+										th:value="${distrito.idDistrito}" th:utext="${distrito.nameDistrito}" />
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Estado</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{estadoTaller}">
+									<option th:each="estadotaller : ${listaEstadoTaller}"
+										th:value="${estadotaller.idEstadoTaller}" th:utext="${estadotaller.nameEstadoTaller}" />
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Categoria</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{category}">
+									<option th:each="category : ${listaCategory}"
+										th:value="${category.idCategory}" th:utext="${category.nameCategory}" />
+								</select>
+							</div>
+						</div>
 
 
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/estadotalleres/list" class="btn btn-danger">Cancelar</a>
+								<a href="/taller/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 						<p th:text="${mensaje}" class="form-text text-danger"></p>
@@ -289,7 +376,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/estadotalleres/list}">Cancel</button>
+							th:href="@{/taller/list}">Cancel</button>
 					</form>
 				</div>
 			</div>

@@ -52,7 +52,7 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Men&uacute;</span>
 			</a>
@@ -68,7 +68,12 @@
 						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div>
-	
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/users/reportes}">Reportes</a>
+					</div>
+				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -81,6 +86,43 @@
 						<a class="collapse-item" th:href="@{/modelos/list}">Modelos</a>
 					</div>
 				</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/departamentos/list}">Departamentos</a>
+					</div>
+				</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/provincias/list}">Provincias</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/distritos/list}">Distritos</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/categories/list}">Categorías</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/propietario/list}">Propietarios</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/taller/list}">Talleres mecanicos</a>
+					</div>
+				</div>
+				
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Usuarios</span>
@@ -91,7 +133,14 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/vehiculos/list}">Vehiculos</a>
 					</div>
-				</div></li>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/telefonopropietario/list}">Telefonos cliente</a>
+					</div>
+				</div>
+				</li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="true"
@@ -120,10 +169,18 @@
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="true"
-				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Reportes</span>
+				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Busqueda</span>
 			</a>
+			
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/marcas/listFind}">Buscar
+							Marcas</a>
+					</div>
+				</div>
+				
 				</li>
-
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
@@ -168,11 +225,11 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span style="color:rgb(30, 144, 255);">Bienvenido usuario: </span> <span style="color:rgb(30, 144, 255);"
+							aria-expanded="false"> <span>Bienvenido usuario: </span> <span
 							th:text="${#authentication.getPrincipal().getUsername()}"></span> 
 							&nbsp; &nbsp; &nbsp; 
-							<span style="color:rgb(30, 144, 255);"> Con rol(es): </span>
-							<span style="color:rgb(30, 144, 255);" th:text="${#authentication.getPrincipal().authorities}"></span>
+							<span> Con rol(es): </span>
+							<span th:text="${#authentication.getPrincipal().authorities}"></span>
 							&nbsp; &nbsp; &nbsp;
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
@@ -202,46 +259,41 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Estado</h1>
+					
+					<div class="container-fluid">
+					
+					<div class="bg row">
+							
+						<div class="content container">
 
-					<hr class="sidebar-divider">
-					<div th:object="${estadotaller}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
+							<div class="cinforeport">
+								<h3 class="title-content">Marcas con más citas por Taller</h3>
+								<p class="inforeport">Lista de las marcas con más citas por taller mecánico</p>
+				
+							</div>
+							<table class="table">
+								<thead class="thead-light">
+								<tr>
+									<th scope="col" class="text-center">Marca</th>
+									<th scope="col" class="text-center">Cantida de citas</th>
+									<th scope="col" class="text-center">Taller mecanico</th>
+									
+								</tr> 
+								</thead>
+								<tbody>
+									<tr th:each="rep : ${listamarMascitXtaller}">
+										<td class="text-center" th:text=${rep[0]}></td>
+										<td class="text-center" th:text=${rep[1]}></td>
+										<td class="text-center" th:text=${rep[2]}></td>
+								
+								</tbody>
+							</table>
+						</div>
 					</div>
-
-					<form th:action="@{/estadotalleres/save}" th:object="${estadotaller}"
-						method="post">
-						
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Estado</label>
-							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{nameEstadoTaller}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameEstadoTaller')}" th:errors="*{nameEstadoTaller}"></small>
-							</div>
-						</div>
-
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/estadotalleres/list" class="btn btn-danger">Cancelar</a>
-							</div>
-						</div>
-						<p th:text="${mensaje}" class="form-text text-danger"></p>
-
-					</form>
-
-
-
-
 				</div>
+			</div>
+					
+					
 				<!-- /.container-fluid -->
 
 			</div>
@@ -289,7 +341,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/estadotalleres/list}">Cancel</button>
+							th:href="@{/marcas/list}">Cancel</button>
 					</form>
 				</div>
 			</div>

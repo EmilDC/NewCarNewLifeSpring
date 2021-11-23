@@ -52,7 +52,7 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Men&uacute;</span>
 			</a>
@@ -68,7 +68,6 @@
 						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div>
-	
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -177,7 +176,6 @@
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
 									align="middle"></img></span>
-
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -202,27 +200,26 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Estado</h1>
+					<h1 class="h3 mb-4 text-gray-800">Departamento</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${estadotaller}" th:remove="tag">
+					<div th:object="${departamento}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/estadotalleres/save}" th:object="${estadotaller}"
+					<form th:action="@{/departamentos/save}" th:object="${departamento}"
 						method="post">
-						
 						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Estado</label>
+							<label for="name" class="col-sm-2 col-form-label">Departamento</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{nameEstadoTaller}"
+								<input autofocus type="text" th:field="*{nameDepartamento}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameEstadoTaller')}" th:errors="*{nameEstadoTaller}"></small>
+									th:if="${#fields.hasErrors('nameDepartamento')}" th:errors="*{nameDepartamento}"></small>
 							</div>
 						</div>
 
@@ -231,7 +228,7 @@
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/estadotalleres/list" class="btn btn-danger">Cancelar</a>
+								<a href="/departamentos/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 						<p th:text="${mensaje}" class="form-text text-danger"></p>
@@ -289,7 +286,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/estadotalleres/list}">Cancel</button>
+							th:href="@{/departamentos/list}">Cancel</button>
 					</form>
 				</div>
 			</div>

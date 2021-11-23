@@ -68,7 +68,6 @@
 						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div>
-	
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -202,36 +201,56 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Estado</h1>
+					<h1 class="h3 mb-4 text-gray-800">Distrito</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${estadotaller}" th:remove="tag">
+					<div th:object="${distrito}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/estadotalleres/save}" th:object="${estadotaller}"
+					<form th:action="@{/distritos/save}" th:object="${distrito}"
 						method="post">
 						
 						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Estado</label>
+							<label for="idDistrito" class="col-sm-2 col-form-label">Id</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{nameEstadoTaller}"
+								<input type="text" th:field="*{idDistrito}" class="form-control"
+									readonly th:errorclass="'form-control alert-success'" /> <small
+									class="form-text text-success"
+									th:if="${#fields.hasErrors('idDistrito')}" th:errors="*{idDistrito}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="name" class="col-sm-2 col-form-label">Distrito</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{nameDistrito}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameEstadoTaller')}" th:errors="*{nameEstadoTaller}"></small>
+									th:if="${#fields.hasErrors('nameDistrito')}" th:errors="*{nameDistrito}"></small>
 							</div>
 						</div>
-
+					
+					<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Provincia</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{provincia}">
+									<option th:each="provincia : ${listaProvincia}"
+										th:value="${provincia.idProvincia}" th:utext="${provincia.nameProvincia}" />
+								</select>
+							</div>
+						</div>
 
 
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/estadotalleres/list" class="btn btn-danger">Cancelar</a>
+								<a href="/distritos/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 						<p th:text="${mensaje}" class="form-text text-danger"></p>
@@ -289,7 +308,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/estadotalleres/list}">Cancel</button>
+							th:href="@{/distritos/list}">Cancel</button>
 					</form>
 				</div>
 			</div>

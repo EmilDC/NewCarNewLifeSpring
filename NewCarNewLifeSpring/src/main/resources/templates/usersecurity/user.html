@@ -168,11 +168,11 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span>Bienvenido usuario: </span> <span
+							aria-expanded="false"> <span style="color:rgb(30, 144, 255);">Bienvenido usuario: </span> <span style="color:rgb(30, 144, 255);"
 							th:text="${#authentication.getPrincipal().getUsername()}"></span> 
 							&nbsp; &nbsp; &nbsp; 
-							<span> Con rol(es): </span>
-							<span th:text="${#authentication.getPrincipal().authorities}"></span>
+							<span style="color:rgb(30, 144, 255);"> Con rol(es): </span>
+							<span style="color:rgb(30, 144, 255);" th:text="${#authentication.getPrincipal().authorities}"></span>
 							&nbsp; &nbsp; &nbsp;
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
