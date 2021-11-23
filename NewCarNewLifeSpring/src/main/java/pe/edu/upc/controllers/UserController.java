@@ -65,5 +65,11 @@ public class UserController {
 		}
 		return "usersecurity/listUser";
 	}
+	
+	@GetMapping("/reportes")
+	public String listReportes(Model model) {
+		
+		return "reports/reports";
+	}
 
 }

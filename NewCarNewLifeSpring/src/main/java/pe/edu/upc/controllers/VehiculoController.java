@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entities.Vehiculo;
 import pe.edu.upc.serviceinterfaces.IModeloService;
+import pe.edu.upc.serviceinterfaces.IPropietarioService;
 import pe.edu.upc.serviceinterfaces.IVehiculoService;
 
 @Controller
@@ -34,12 +35,16 @@ public class VehiculoController {
 	private IModeloService  mS;
 	
 	@Autowired
+	private IPropietarioService  pS;
+	
+	@Autowired
 	private IVehiculoService vS;
 	
 	@GetMapping("/new")
 	public String newVehiculo(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		model.addAttribute("listaModelos", mS.list());
+		model.addAttribute("listaPropietarios", pS.list());
 		return "vehiculo/vehiculo";
 		
 	}
@@ -60,6 +65,7 @@ public class VehiculoController {
 	public String saveVehiculo(@ModelAttribute @Valid Vehiculo vehiculo, BindingResult result, Model model, SessionStatus status) throws Exception {
 		if (result.hasErrors()) {
 			model.addAttribute("listaModelos", mS.list());
+			model.addAttribute("listaPropietarios", pS.list());
 			return "vehiculo/vehiculo";
 		} else {
 			try {
@@ -94,6 +100,7 @@ public class VehiculoController {
 			return "redirect:/vehiculos/list";
 		} else {
 			model.addAttribute("listaModelos", mS.list());
+			model.addAttribute("listaPropietarios", pS.list());
 			model.addAttribute("vehiculo", objPro);
 			return "vehiculo/update";
 		}
@@ -115,6 +122,7 @@ public class VehiculoController {
 		model.addAttribute("vehiculo", vehiculo);
 		model.addAttribute("listaVehiculos", vS.list());
 		model.addAttribute("listaModelos", mS.list());
+		model.addAttribute("listaPropietarios", pS.list());
 		
 		return "vehiculo/listVehiculos";
 	}
